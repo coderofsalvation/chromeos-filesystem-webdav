@@ -1,3 +1,24 @@
+This is a fork with bugfix made on Mon Dec 17 13:50:34 CET 2018 in window.js:
+
+```
+   parseDeclaration: function(elementElement) {
+        var template = this.fetchTemplate(elementElement);
+        if (template) {
+   +      try {
+              var root = this.shadowFromTemplate(template);
+              this.shadowRoots[elementElement.name] = root;
+   +      } catch (e) {
+   +          console.dir(e)
+   +      }
+        }
+      },
+```
+
+Seems to be a bug in polymer, 
+I don't really have the time to properly fix this,  so download the build [here](build.zip) to load the bugfixed extension manually.
+
+---
+
 [![Code Climate](https://codeclimate.com/github/yoichiro/chromeos-filesystem-webdav/badges/gpa.svg)](https://codeclimate.com/github/yoichiro/chromeos-filesystem-webdav)
 
 # WebDAV File System
